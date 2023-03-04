@@ -7,6 +7,11 @@ function Home() {
     <>
         <Hero />
         <Projects/>
+        <div className='flex justify-center items-center my-5'>
+          <button type="button" className='inline-bloc px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>
+            Load More
+          </button>
+        </div>
     </>
   )
 }
