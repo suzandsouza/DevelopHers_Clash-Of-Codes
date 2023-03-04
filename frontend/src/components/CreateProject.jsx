@@ -1,11 +1,53 @@
 import { FaTimes } from "react-icons/fa"
 import { setGlobalState, useGlobalState } from "../store"
+import { useState } from "react"
 const CreateProjects = () => {
   const [createModal] = useGlobalState('createModal')
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [cost, setCost] = useState('')
+  const [date, setDate] = useState('')
+  const [imageURL, setImageURL] = useState('')
+
+  const toTimestamp = (dateStr) => {
+    const dateObj = Date.parse(dateStr)
+    return dateObj / 1000
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!title || !description || !cost || !date || !imageURL) return
+
+    const params = {
+      title,
+      description,
+      cost,
+      expiresAt: toTimestamp(date),
+      imageURL,
+    }
+
+    await createProject(params)
+    toast.success('Project created successfully, will reflect in 30sec.')
+    onClose()
+    window.location.reload()
+  }
+
+  const onClose = () => {
+    setGlobalState('createModal', 'scale-0')
+    reset()
+  }
+
+  const reset = () => {
+    setTitle('')
+    setCost('')
+    setDescription('')
+    setImageURL('')
+    setDate('')
+  }
   return (
     <div className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform transition-transform duration-300 ${createModal}`}>
       <div className="bg-white shadow-xl shadow-black rounded-xl-11/12 md:w-2/5 h-7/12 p-6">
-        <form className="flex flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="flex justify-between items-center"><p className="font-semibold">Add project</p>
           <button type="button" className="border-0 bg-transparent focus:outline-none " onClick={()=>setGlobalState('createModal','scale-0')}>
 <FaTimes />
