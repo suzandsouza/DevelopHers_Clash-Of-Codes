@@ -2,6 +2,9 @@ import React from 'react'
 import Hero from '../components/Hero'
 import {Route,Routes} from 'react-router-dom'
 import Projects from '../components/Projects'
+import CreateProject from '../components/CreateProject'
+import AddButton from '../components/AddButton'
+import UpdateProjects from '../components/UpdateProject'
 function Home() {
   return (
     <>
@@ -12,6 +15,9 @@ function Home() {
             Load More
           </button>
         </div>
+        <CreateProject />
+        
+        <AddButton />
     </>
   )
 }

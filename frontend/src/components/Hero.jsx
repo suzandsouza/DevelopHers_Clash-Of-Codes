@@ -1,5 +1,6 @@
 import React from 'react'
 import home_page from '../images/home_page.jpg'
+import { setGlobalState } from '../store'
 function Hero() {
    // const[stats]=useGlobalState('stats')
   return (
@@ -15,7 +16,7 @@ function Hero() {
         <br />
         <br/>
         <div className='flex justify-center items-center space-x-2'>
-        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>Lend Your Money</button>
+        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md hover:bg-blue-700' onClick={()=>setGlobalState('createModal', 'scale-100')}>Lend Your Money</button>
         
         <button type='button' className='inline-block px-6 py-2.5 border border-blue-600
         font-medium text-lg leading-tight uppercase text-blue-600
