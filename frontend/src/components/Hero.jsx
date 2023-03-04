@@ -21,44 +21,54 @@ function Hero() {
         font-medium text-lg leading-tight uppercase text-blue-600
         rounded-full shadow-md bg-transparent hover:bg-blue-700
         hover:text-white'>Borrow From Lenders</button>
-     </div>
+        </div>
         </span>
         
      </h1>
     </figure>
     
-     {/* <div className='flex justify-center items-center space-x-2'>
-        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>Login</button>
-        
-        <button type='button' className='"inline-block px-6 py-2.5 border border-blue-600
-        font-medium text-xs leading-tight uppercase text-blue-600
-        rounded-full shadow-md bg-transparent hover:bg-blue-700
-        hover:text-white'>Signup</button>
-     </div> */}
-     <div className='flex justify-center items-center mt-10'>
-        <div className='flex flex-col justify-center items-center h-20 border shadow-md w-full'>
-            <span className='text-xl font-extrabold text-blue-900 leading-5'>
-                Easy
-            </span>
-            <span>To Understand And Use</span>
 
+    <div className="flex justify-center items-center mt-10">
+        <div
+          className="flex flex-col justify-center items-center
+          h-20 border shadow-md w-full"
+        >
+          <span
+            className="text-lg font-bold text-green-900
+            leading-5"
+          >
+            {0}
+          </span>
+          <span>Projects</span>
         </div>
-        <div className='flex flex-col justify-center items-center h-20 border shadow-md w-full'>
-            <span className='text-xl font-extrabold text-blue-900 leading-5'>
-                Secure
-            </span>
-            <span>Asset Management</span>
 
+        <div
+          className="flex flex-col justify-center items-center
+          h-20 border shadow-md w-full"
+        >
+          <span
+            className="text-lg font-bold text-green-900
+            leading-5"
+          >
+            {0}
+          </span>
+          <span>Backings</span>
         </div>
-        <div className='flex flex-col justify-center items-center h-20 border shadow-md w-full'>
-            <span className='text-xl font-extrabold text-blue-900 leading-5'>
-                Hasslefree
-            </span>
-            <span>Transactions</span>
-
+        <div
+          className="flex flex-col justify-center items-center
+          h-20 border shadow-md w-full"
+        >
+          <span
+            className="text-lg font-bold text-green-900
+            leading-5"
+          >
+            {0} ETH
+          </span>
+          <span>Donated</span>
         </div>
-     </div>
+        </div>
     </div>
+     
   )
 }
 
