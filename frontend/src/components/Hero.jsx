@@ -1,47 +1,60 @@
 import React from 'react'
-
+import home_page from '../images/home_page.jpg'
 function Hero() {
    // const[stats]=useGlobalState('stats')
   return (
     <div className='text-center bg-white text-gray-800 py-24 px-6'>
-     <h1 className='text-4xl md:text-5xl font-bold tracking-tight mb-12'> 
+    <figure className='md:flex white-100 rounded-xl p-8 md:p-0 dark:bg-white-800'>
+    <img className='' src={home_page} alt="home-page"/>
+     <h1 className='text-4xl md:text-5xl font-bold tracking-tight mb-0 mt-12'> 
         <span className='capitalize'>
         Decentralizing your Banking Experience
         <br />
-        <span className='uppercase text-green-600'> DevHers</span>
-            <br />
-          
+        <br />
+        <span className='uppercase text-blue-600'> DevHers</span>
+        <br />
+        <br/>
+        <div className='flex justify-center items-center space-x-2'>
+        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>Login</button>
+        
+        <button type='button' className='"inline-block px-6 py-2.5 border border-blue-600
+        font-medium text-lg leading-tight uppercase text-blue-600
+        rounded-full shadow-md bg-transparent hover:bg-blue-700
+        hover:text-white'>Signup</button>
+     </div>
         </span>
         
      </h1>
-     <div className='flex justify-center items-center space-x-2'>
-        <button type='button' className='inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-green-700'>Login</button>
+    </figure>
+    
+     {/* <div className='flex justify-center items-center space-x-2'>
+        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>Login</button>
         
-        <button type='button' className='"inline-block px-6 py-2.5 border border-green-600
-        font-medium text-xs leading-tight uppercase text-green-600
-        rounded-full shadow-md bg-transparent hover:bg-green-700
+        <button type='button' className='"inline-block px-6 py-2.5 border border-blue-600
+        font-medium text-xs leading-tight uppercase text-blue-600
+        rounded-full shadow-md bg-transparent hover:bg-blue-700
         hover:text-white'>Signup</button>
-     </div>
+     </div> */}
      <div className='flex justify-center items-center mt-10'>
         <div className='flex flex-col justify-center items-center h-20 border shadow-md w-full'>
-            <span className='text-lg font-bold text-green-900 leading-5'>
-                {0}
+            <span className='text-xl font-extrabold text-blue-900 leading-5'>
+                Easy
             </span>
-            <span>Arts</span>
+            <span>To Understand And Use</span>
 
         </div>
         <div className='flex flex-col justify-center items-center h-20 border shadow-md w-full'>
-            <span className='text-lg font-bold text-green-900 leading-5'>
-                {0}
+            <span className='text-xl font-extrabold text-blue-900 leading-5'>
+                Secure
             </span>
-            <span>Backing</span>
+            <span>Asset Management</span>
 
         </div>
         <div className='flex flex-col justify-center items-center h-20 border shadow-md w-full'>
-            <span className='text-lg font-bold text-green-900 leading-5'>
-                {0} ETH
+            <span className='text-xl font-extrabold text-blue-900 leading-5'>
+                Hasslefree
             </span>
-            <span>Funding</span>
+            <span>Transactions</span>
 
         </div>
      </div>
