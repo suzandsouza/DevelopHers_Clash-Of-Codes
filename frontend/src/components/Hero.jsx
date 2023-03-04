@@ -15,12 +15,12 @@ function Hero() {
         <br />
         <br/>
         <div className='flex justify-center items-center space-x-2'>
-        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>Login</button>
+        <button type='button' className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>Lend Your Money</button>
         
-        <button type='button' className='"inline-block px-6 py-2.5 border border-blue-600
+        <button type='button' className='inline-block px-6 py-2.5 border border-blue-600
         font-medium text-lg leading-tight uppercase text-blue-600
         rounded-full shadow-md bg-transparent hover:bg-blue-700
-        hover:text-white'>Signup</button>
+        hover:text-white'>Borrow From Lenders</button>
      </div>
         </span>
         
