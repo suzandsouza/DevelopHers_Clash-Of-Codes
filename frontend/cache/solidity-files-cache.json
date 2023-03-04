@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "E:\\VS code\\COC\\DevelopHers_Clash-Of-Codes\\frontend\\src\\contracts\\devhers.sol": {
+      "lastModificationDate": 1677961914407,
+      "contentHash": "21340dc88238a461e6f4ab4b06b741a0",
+      "sourceName": "src/contracts/devhers.sol",
+      "solcConfig": {
+        "version": "0.8.11",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "devhers"
+      ]
+    }
+  }
+}
