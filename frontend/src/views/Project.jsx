@@ -1,6 +1,10 @@
+import ProjectDetails from "../components/ProjectDetails"
+
 const Project = () => {
   return (
-    <div className="py-24 px-6">Project</div>
+    <>
+        <ProjectDetails/>
+    </>
   )
 }
 
