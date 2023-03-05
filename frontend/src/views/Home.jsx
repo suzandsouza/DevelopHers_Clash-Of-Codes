@@ -1,23 +1,23 @@
-import React from 'react'
-import Hero from '../components/Hero'
-import {Route,Routes} from 'react-router-dom'
-import Projects from '../components/Projects'
-import CreateProject from '../components/CreateProject'
+import { useEffect } from 'react'
 import AddButton from '../components/AddButton'
-import UpdateProjects from '../components/UpdateProject'
-function Home() {
+import CreateProject from '../components/CreateProject'
+import Hero from '../components/Hero'
+import Projects from '../components/Projects'
+import { loadProjects } from '../services/blockchain'
+import { useGlobalState } from '../store'
+
+const Home = () => {
+  const [projects] = useGlobalState('projects')
+
+  useEffect(async () => {
+    await loadProjects()
+  }, [])
   return (
     <>
-        <Hero />
-        <Projects/>
-        <div className='flex justify-center items-center my-5'>
-          <button type="button" className='inline-bloc px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700'>
-            Load More
-          </button>
-        </div>
-        <CreateProject />
-        
-        <AddButton />
+      <Hero />
+      <Projects projects={projects} />
+      <CreateProject />
+      <AddButton />
     </>
   )
 }

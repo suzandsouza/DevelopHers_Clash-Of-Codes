@@ -46,13 +46,14 @@ const ProjectDetails = () => {
         <button type='button' className='inline-block px-6 py-2.5 border border-blue-600
         font-medium text-lg leading-tight uppercase text-blue-600
         rounded-full shadow-md bg-transparent hover:bg-blue-700
-        hover:text-white'>Borrow From Lenders</button>
+        hover:text-white' onClick={()=>setGlobalState('backModal','scale-100')}>Borrow From Lenders</button>
 
 <button
                           type="button"
                           className="inline-block px-6 py-2.5 bg-gray-600
                           text-white font-medium text-xs leading-tight uppercase
                           rounded-full shadow-md hover:bg-gray-700"
+
                           onClick={() =>
                             setGlobalState('updateModal', 'scale-100')
                           }
@@ -64,7 +65,7 @@ const ProjectDetails = () => {
                           className="inline-block px-6 py-2.5 bg-red-600
                           text-white font-medium text-xs leading-tight uppercase
                           rounded-full shadow-md hover:bg-red-700"
-                          
+                          onClick={()=>setGlobalState('deleteModal','scale-100')}
                         >
                           Delete
                         </button>

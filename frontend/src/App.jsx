@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import { isWallectConnected } from './services/blockchain'
 import { useEffect, useState } from 'react'
 import Project from './views/Project'
+import { ToastContainer } from 'react-toastify'
 const App = () => {
   const [loaded, setLoaded] = useState(false)
 
@@ -17,13 +18,27 @@ const App = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      {/* <Home />
-      <Footer /> */}
-      <Routes>
+      {loaded ? (
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects/:id" element={<Project />} />
       </Routes>
-   
+      ):null}
+      {/* <Home />
+      <Footer /> */}
+     
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   )
 }

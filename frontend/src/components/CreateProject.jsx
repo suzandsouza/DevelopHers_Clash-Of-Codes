@@ -1,5 +1,6 @@
 import { FaTimes } from "react-icons/fa"
 import { setGlobalState, useGlobalState } from "../store"
+import { createProject } from "../services/blockchain"
 import { useState } from "react"
 const CreateProjects = () => {
   const [createModal] = useGlobalState('createModal')
@@ -29,7 +30,7 @@ const CreateProjects = () => {
     await createProject(params)
     toast.success('Project created successfully, will reflect in 30sec.')
     onClose()
-    window.location.reload()
+    // window.location.reload()
   }
 
   const onClose = () => {
@@ -49,39 +50,84 @@ const CreateProjects = () => {
       <div className="bg-white shadow-xl shadow-black rounded-xl-11/12 md:w-2/5 h-7/12 p-6">
         <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="flex justify-between items-center"><p className="font-semibold">Add project</p>
-          <button type="button" className="border-0 bg-transparent focus:outline-none " onClick={()=>setGlobalState('createModal','scale-0')}>
-<FaTimes />
-          </button></div>
+          <button
+              onClick={onClose}
+              type="button"
+              className="border-0 bg-transparent focus:outline-none"
+            >
+              <FaTimes />
+            </button>
+            
+            </div>
+            
           <div className="flex justify-center items-center mt-5">
             <div className="rounded-xl overflow-hidden h-20 w-20">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuGfj1Q5Pptp1KEePiW1GwtXi44wRoIb2T6g&usqp=CAU" alt="user img" className="h-full w-full object-cover cursor" />
+            <img src={
+                  imageURL ||
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuGfj1Q5Pptp1KEePiW1GwtXi44wRoIb2T6g&usqp=CAU'
+                }
+           alt="user img" className="h-full w-full object-cover cursor" />
             
             </div>
           </div>
           <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
             <input className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" type="number" step={0.01} min={0.01} name="anount" placeholder="0.02"></input>
+            focus:ring-0" type="text" step={0.01} min={0.01} name="text" placeholder="Title" 
+            onChange={(e)=>setTitle(e.target.value)} value={title}></input>
           </div>
           <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
             <input className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" type="number" step={0.01} min={0.01} name="amount" placeholder="Amount (ETH)"></input>
+            focus:ring-0" 
+            type="number" 
+            step={0.01} 
+            min={0.01} 
+            name="amount" 
+            placeholder="Amount (ETH)"
+            onChange={(e)=>setCost(e.target.value)}
+            value={cost}
+            required
+            ></input>
           </div>
+          
           <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
             <input className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" type="date"  step={0.01} min={0.01} name="date" placeholder="Amount (ETH)"></input>
+            focus:ring-0" 
+            type="date"  
+            step={0.01} 
+            min={0.01} 
+            name="date" 
+            placeholder="Expires"
+            onChange={(e)=>setDate(e.target.value)}
+            value={date}
+            ></input>
           </div>
+          
           <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
             <input className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" type="url" step={0.01} min={0.01} name="anount" placeholder="User URL"></input>
+            focus:ring-0" 
+            type="url" 
+            name="anount" 
+            placeholder="User URL"
+            onChange={(e)=>setImageURL(e.target.value)
+            }
+            value={imageURL}></input>
           </div>
+          
           <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
             <input className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" type="text" step={0.01} min={0.01} name="description" placeholder="Description"></input>
+            focus:ring-0" 
+            type="text" 
+            name="description" 
+            placeholder="Description"
+            onChange={(e)=>setDescription(e.target.value)}
+              value={description}
+              required
+            ></input>
           </div>
           <button type="submit" className="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-green-700 mt-5">
             Submit project
