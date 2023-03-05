@@ -103,7 +103,7 @@ const deleteProject = async (id) => {
 }
 
 const loadProjects = async () => {
-  try {
+//   try {
     if (!ethereum) return alert('Please install Metamask')
 
     const contract = await getEtheriumContract()
@@ -112,9 +112,9 @@ const loadProjects = async () => {
 
     setGlobalState('stats', structureStats(stats))
     setGlobalState('projects', structuredProjects(projects))
-  } catch (error) {
-    reportError(error)
-  }
+//   } catch (error) {
+//     reportError(error)
+//   }
 }
 
 const loadProject = async (id) => {
@@ -217,7 +217,7 @@ const structureStats = (stats) => ({
 
 const reportError = (error) => {
   console.log(error.message)
-  throw new Error('No ethereum object.')
+//   throw new Error('No ethereum object.')
 }
 
 export {

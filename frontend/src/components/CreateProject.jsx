@@ -1,8 +1,10 @@
-import { FaTimes } from "react-icons/fa"
-import { setGlobalState, useGlobalState } from "../store"
-import { createProject } from "../services/blockchain"
-import { useState } from "react"
-const CreateProjects = () => {
+import { useState } from 'react'
+import { FaTimes } from 'react-icons/fa'
+import { toast } from 'react-toastify'
+import { createProject } from '../services/blockchain'
+import { useGlobalState, setGlobalState } from '../store'
+
+const CreateProject = () => {
   const [createModal] = useGlobalState('createModal')
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -30,7 +32,7 @@ const CreateProjects = () => {
     await createProject(params)
     toast.success('Project created successfully, will reflect in 30sec.')
     onClose()
-    // window.location.reload()
+    window.location.reload()
   }
 
   const onClose = () => {
@@ -45,98 +47,141 @@ const CreateProjects = () => {
     setImageURL('')
     setDate('')
   }
+
   return (
-    <div className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform transition-transform duration-300 ${createModal}`}>
-      <div className="bg-white shadow-xl shadow-black rounded-xl-11/12 md:w-2/5 h-7/12 p-6">
+    <div
+      className={`fixed top-0 left-0 w-screen h-screen flex
+    items-center justify-center bg-black bg-opacity-50
+    transform transition-transform duration-300 ${createModal}`}
+    >
+      <div
+        className="bg-white shadow-xl shadow-black
+        rounded-xl w-11/12 md:w-2/5 h-7/12 p-6"
+      >
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="flex justify-between items-center"><p className="font-semibold">Add project</p>
-          <button
+          <div className="flex justify-between items-center">
+            <p className="font-semibold">Add Project</p>
+            <button
               onClick={onClose}
               type="button"
               className="border-0 bg-transparent focus:outline-none"
             >
               <FaTimes />
             </button>
-            
-            </div>
-            
+          </div>
+
           <div className="flex justify-center items-center mt-5">
             <div className="rounded-xl overflow-hidden h-20 w-20">
-            <img src={
+              <img
+                src={
                   imageURL ||
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuGfj1Q5Pptp1KEePiW1GwtXi44wRoIb2T6g&usqp=CAU'
+                  'https://media.wired.com/photos/5926e64caf95806129f50fde/master/pass/AnkiHP.jpg'
                 }
-           alt="user img" className="h-full w-full object-cover cursor" />
-            
+                alt="project title"
+                className="h-full w-full object-cover cursor-pointer"
+              />
             </div>
           </div>
-          <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
-            <input className="block w-full bg-transparent
+
+          <div
+            className="flex justify-between items-center
+          bg-gray-300 rounded-xl mt-5"
+          >
+            <input
+              className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" type="text" step={0.01} min={0.01} name="text" placeholder="Title" 
-            onChange={(e)=>setTitle(e.target.value)} value={title}></input>
+            focus:ring-0"
+              type="text"
+              name="title"
+              placeholder="Title"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+              required
+            />
           </div>
-          <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
-            <input className="block w-full bg-transparent
+
+          <div
+            className="flex justify-between items-center
+          bg-gray-300 rounded-xl mt-5"
+          >
+            <input
+              className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" 
-            type="number" 
-            step={0.01} 
-            min={0.01} 
-            name="amount" 
-            placeholder="Amount (ETH)"
-            onChange={(e)=>setCost(e.target.value)}
-            value={cost}
-            required
-            ></input>
+            focus:ring-0"
+              type="number"
+              step={0.01}
+              min={0.01}
+              name="cost"
+              placeholder="cost (ETH)"
+              onChange={(e) => setCost(e.target.value)}
+              value={cost}
+              required
+            />
           </div>
-          
-          <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
-            <input className="block w-full bg-transparent
+
+          <div
+            className="flex justify-between items-center
+          bg-gray-300 rounded-xl mt-5"
+          >
+            <input
+              className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" 
-            type="date"  
-            step={0.01} 
-            min={0.01} 
-            name="date" 
-            placeholder="Expires"
-            onChange={(e)=>setDate(e.target.value)}
-            value={date}
-            ></input>
+            focus:ring-0"
+              type="date"
+              name="date"
+              placeholder="Expires"
+              onChange={(e) => setDate(e.target.value)}
+              value={date}
+              required
+            />
           </div>
-          
-          <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
-            <input className="block w-full bg-transparent
+
+          <div
+            className="flex justify-between items-center
+          bg-gray-300 rounded-xl mt-5"
+          >
+            <input
+              className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" 
-            type="url" 
-            name="anount" 
-            placeholder="User URL"
-            onChange={(e)=>setImageURL(e.target.value)
-            }
-            value={imageURL}></input>
+            focus:ring-0"
+              type="url"
+              name="imageURL"
+              placeholder="Image URL"
+              onChange={(e) => setImageURL(e.target.value)}
+              value={imageURL}
+              required
+            />
           </div>
-          
-          <div className="flex justify-between items-center bg-gray-300 rounde-xl mt-5">
-            <input className="block w-full bg-transparent
+
+          <div
+            className="flex justify-between items-center
+          bg-gray-300 rounded-xl mt-5"
+          >
+            <textarea
+              className="block w-full bg-transparent
             border-0 text-sm text-slate-500 focus:outline-none
-            focus:ring-0" 
-            type="text" 
-            name="description" 
-            placeholder="Description"
-            onChange={(e)=>setDescription(e.target.value)}
+            focus:ring-0"
+              type="text"
+              name="description"
+              placeholder="Description"
+              onChange={(e) => setDescription(e.target.value)}
               value={description}
               required
-            ></input>
+            ></textarea>
           </div>
-          <button type="submit" className="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-green-700 mt-5">
-            Submit project
+
+          <button
+            type="submit"
+            className="inline-block px-6 py-2.5 bg-green-600
+            text-white font-medium text-md leading-tight
+            rounded-full shadow-md hover:bg-green-700 mt-5"
+          >
+            Submit Project
           </button>
         </form>
-
       </div>
     </div>
   )
 }
 
-export default CreateProjects
+export default CreateProject
